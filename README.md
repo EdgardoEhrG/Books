@@ -1,2 +1,2 @@
 # Books
-Books (GoLang) Status: Development
+Books (Go) Status: Development
