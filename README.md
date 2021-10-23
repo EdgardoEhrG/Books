@@ -1,7 +1,11 @@
 # Books
 
-Work with database (GET / POST / PUT / DELETE)
-
 > Go
 
 > ElephantSQL
+
+## Useful elements
+
+- [ ] DB connection
+- [ ] Go CRUD operations (GET / POST / PUT / DELETE)
+- [ ] Requests | Router

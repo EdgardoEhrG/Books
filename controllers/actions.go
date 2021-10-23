@@ -9,11 +9,9 @@ import (
 	"strconv"
 
 	"../models"
-
 	"github.com/gorilla/mux"
 )
 
-// Controller ...
 type Controller struct{}
 
 // ======== Init
@@ -28,9 +26,8 @@ func logFatal(err error) {
 
 // ======== Actions
 
-// GetBooks ...
 func (c Controller) GetBooks(db *sql.DB) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) { // Works
+	return func(w http.ResponseWriter, r *http.Request) {
 
 		var book models.Book
 		books = []models.Book{}
@@ -56,9 +53,8 @@ func (c Controller) GetBooks(db *sql.DB) http.HandlerFunc {
 
 // -------------------------------------
 
-// GetBook ...
 func (c Controller) GetBook(db *sql.DB) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) { // Not Working :(
+	return func(w http.ResponseWriter, r *http.Request) {
 
 		// ======== Temp Code
 		// params := mux.Vars(r)
@@ -70,7 +66,6 @@ func (c Controller) GetBook(db *sql.DB) http.HandlerFunc {
 		// 	}
 		// }
 		// Info (HTTP) | log.Println(params)
-		// ======== End
 
 		var book models.Book
 
@@ -93,16 +88,14 @@ func (c Controller) GetBook(db *sql.DB) http.HandlerFunc {
 
 // -------------------------------------
 
-// AddBook ...
 func (c Controller) AddBook(db *sql.DB) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) { // This func works
+	return func(w http.ResponseWriter, r *http.Request) {
 
 		// ======== This code works with Postman
 		// var book Book
 		// _ = json.NewDecoder(r.Body).Decode(&book)
 		// books = append(books, book)
 		// json.NewEncoder(w).Encode(books)
-		// ======== End
 
 		var book models.Book
 		var bookID int
@@ -123,7 +116,6 @@ func (c Controller) AddBook(db *sql.DB) http.HandlerFunc {
 
 // -------------------------------------
 
-// UpdateBook ...
 func (c Controller) UpdateBook(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 
@@ -136,7 +128,6 @@ func (c Controller) UpdateBook(db *sql.DB) http.HandlerFunc {
 		// 	}
 		// }
 		// json.NewEncoder(w).Encode(books)
-		// ======== End
 
 		var book models.Book
 
@@ -156,9 +147,8 @@ func (c Controller) UpdateBook(db *sql.DB) http.HandlerFunc {
 
 // -------------------------------------
 
-// RemoveBook ...
 func (c Controller) RemoveBook(db *sql.DB) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) { // Works
+	return func(w http.ResponseWriter, r *http.Request) {
 
 		// ======== This code works with Postman
 		// params := mux.Vars(r)
@@ -170,7 +160,6 @@ func (c Controller) RemoveBook(db *sql.DB) http.HandlerFunc {
 		// 	}
 		// }
 		// json.NewEncoder(w).Encode(books)
-		// ======== End
 
 		params := mux.Vars(r)
 		i, _ := strconv.Atoi(params["id"])

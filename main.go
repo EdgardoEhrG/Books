@@ -13,10 +13,8 @@ import (
 	"github.com/subosito/gotenv"
 )
 
-// Array of books
 var books []models.Book
 
-// DataBase
 var db *sql.DB
 
 // ======== Init ========
@@ -57,7 +55,7 @@ func main() {
 	router.HandleFunc("/books", controller.UpdateBook(db)).Methods("PUT")
 	router.HandleFunc("/books/{id}", controller.RemoveBook(db)).Methods("DELETE")
 
-	// ======== Server? ========
+	// ======== Server ========
 
 	log.Fatal(http.ListenAndServe(":8000", router))
 }

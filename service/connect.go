@@ -8,8 +8,6 @@ import (
 	"github.com/lib/pq"
 )
 
-// ======== Init
-
 var db *sql.DB
 
 func logFatal(err error) {
@@ -18,7 +16,6 @@ func logFatal(err error) {
 	}
 }
 
-// ConnectDB ...
 func ConnectDB() *sql.DB {
 	pgURL, err := pq.ParseURL(os.Getenv("ELEPHANTSQL_URL"))
 	logFatal(err)
